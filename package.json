@@ -1,0 +1,42 @@
+{
+	"name": "@kokiito0926/fmeditor",
+	"version": "0.0.0",
+	"private": false,
+	"description": "フロントマターを編集することができるコマンドラインのツールです。",
+	"keywords": [
+		"cli",
+		"bash",
+		"shell",
+		"script",
+		"nodejs",
+		"fmeditor",
+		"markdown",
+		"frontmatter"
+	],
+	"homepage": "https://github.com/kokiito0926/fmeditor#readme",
+	"publishConfig": {
+		"access": "public"
+	},
+	"bin": {
+		"fmeditor": "index.js"
+	},
+	"bugs": {
+		"url": "https://github.com/kokiito0926/fmeditor/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kokiito0926/fmeditor.git"
+	},
+	"license": "MIT",
+	"author": "Koki Ito <kokiito0926@gmail.com>",
+	"type": "module",
+	"scripts": {
+		"test": "node --test"
+	},
+	"dependencies": {
+		"zx": "^8.8.4"
+	},
+	"engines": {
+		"node": ">=24.0.0"
+	}
+}
