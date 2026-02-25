@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// >> $ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | ./index.js --draft true
+// >> $ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | ./index.js --tags '["markdown", "frontmatter", "yaml"]'
+
 import { stdin, argv } from "zx";
 import matter from "gray-matter";
 
