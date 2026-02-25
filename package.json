@@ -1,6 +1,6 @@
 {
 	"name": "@kokiito0926/fmeditor",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"private": false,
 	"description": "フロントマターを編集することができるコマンドラインのツールです。",
 	"keywords": [
