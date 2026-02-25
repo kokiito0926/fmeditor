@@ -34,7 +34,8 @@
 		"test": "node --test"
 	},
 	"dependencies": {
-		"zx": "^8.8.4"
+		"zx": "^8.8.4",
+		"gray-matter": "^4.0.3"
 	},
 	"engines": {
 		"node": ">=24.0.0"
