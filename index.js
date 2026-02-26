@@ -16,19 +16,33 @@ if (!input) {
 }
 
 const { _, ...flags } = argv;
+const command = _[0] || "set";
 
-const processedData = {};
-for (const [key, value] of Object.entries(flags)) {
-	try {
-		processedData[key] = JSON.parse(value);
-	} catch (err) {
-		processedData[key] = value;
+if (command === "set") {
+	const processedData = {};
+	for (const [key, value] of Object.entries(flags)) {
+		try {
+			processedData[key] = JSON.parse(value);
+		} catch (err) {
+			processedData[key] = value;
+		}
 	}
+
+	const doc = matter(input || "");
+
+	doc.data = { ...doc.data, ...processedData };
+
+	const text = matter.stringify(doc.content, doc.data);
+	console.log(text);
+} else if (command === "get") {
+	console.log("Not implemented yet");
+} else if (command === "remove") {
+	const doc = matter(input || "");
+
+	Object.keys(flags).forEach((k) => {
+		delete doc.data[k];
+	});
+
+	const text = matter.stringify(doc.content, doc.data);
+	console.log(text);
 }
-
-const doc = matter(input || "");
-
-doc.data = { ...doc.data, ...processedData };
-
-const text = matter.stringify(doc.content, doc.data);
-console.log(text);
