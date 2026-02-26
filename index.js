@@ -5,6 +5,7 @@
 
 import { stdin, argv } from "zx";
 import matter from "gray-matter";
+import yaml from "js-yaml";
 
 if (process.stdin.isTTY) {
 	process.exit(1);
@@ -35,7 +36,18 @@ if (command === "set") {
 	const text = matter.stringify(doc.content, doc.data);
 	console.log(text);
 } else if (command === "get") {
-	console.log("Not implemented yet");
+	const doc = matter(input || "");
+
+	const keys = Object.keys(flags);
+	if (keys.length === 0) {
+		console.log(yaml.dump(doc.data));
+	} else {
+		const result = {};
+		keys.forEach((k) => {
+			if (k in doc.data) result[k] = doc.data[k];
+		});
+		console.log(yaml.dump(result));
+	}
 } else if (command === "remove") {
 	const doc = matter(input || "");
 
