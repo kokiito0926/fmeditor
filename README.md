@@ -15,11 +15,15 @@ curlなどで取得したマークダウンをパイプでfmeditorに流し込�
 そうすると、コマンドライン引数の値がセットされたフロントマターとともにマークダウンが出力されます。
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | fmeditor --draft true
+$ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | fmeditor get --title --tags --draft
 ```
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | fmeditor --tags '["markdown", "frontmatter", "yaml"]'
+$ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | fmeditor set --tags '["markdown", "frontmatter", "yaml"]'
+```
+
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | fmeditor remove --title --tags
 ```
 
 ## ライセンス
