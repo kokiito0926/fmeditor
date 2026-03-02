@@ -4,9 +4,8 @@
 // >> $ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | ./index.js set --tags '["markdown", "frontmatter", "yaml"]'
 // >> $ curl -fsSL https://raw.githubusercontent.com/Kernix13/markdown-cheatsheet/refs/heads/master/frontmatter.md | ./index.js remove --title --tags
 
-import { stdin, argv } from "zx";
+import { stdin, argv, YAML } from "zx";
 import matter from "gray-matter";
-import yaml from "js-yaml";
 
 if (process.stdin.isTTY) {
 	process.exit(1);
@@ -41,13 +40,13 @@ if (command === "set") {
 
 	const keys = Object.keys(flags);
 	if (keys.length === 0) {
-		console.log(yaml.dump(doc.data));
+		console.log(YAML.stringify(doc.data));
 	} else {
 		const result = {};
 		keys.forEach((k) => {
 			if (k in doc.data) result[k] = doc.data[k];
 		});
-		console.log(yaml.dump(result));
+		console.log(YAML.stringify(result));
 	}
 } else if (command === "remove") {
 	const doc = matter(input);

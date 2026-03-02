@@ -35,7 +35,6 @@
 	},
 	"dependencies": {
 		"gray-matter": "^4.0.3",
-		"js-yaml": "^4.1.1",
 		"zx": "^8.8.4"
 	},
 	"engines": {
